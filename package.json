@@ -1,0 +1,23 @@
+{
+  "name": "kraftkallan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "build": "gulp build",
+    "dev": "gulp build && gulp watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^7.1.0",
+    "fancy-log": "^2.0.0",
+    "gulp": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.79.3"
+  },
+  "dependencies": {
+    "bulma": "^1.0.2"
+  }
+}

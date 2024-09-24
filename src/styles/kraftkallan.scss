@@ -1,0 +1,5 @@
+@use './abstracts/variables.scss' as variables;
+
+body {
+  background-color: variables.$sk-white;
+}
