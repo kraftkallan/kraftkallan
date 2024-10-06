@@ -1,5 +1,61 @@
+@use "sass:string";
+
 @use './abstracts/variables.scss' as variables;
 
-body {
-  background-color: variables.$sk-white;
+$bulmaPath: "../../node_modules/bulma/";
+
+// Override global Sass variables from the /utilities folder
+@use "../../node_modules/bulma/sass/utilities" with (
+  $class-prefix: "sk-", // samtalscentre kraftkällan => sk
+  $cssvars-prefix: "sk-",
+  $family-primary: '"Open Sans", sans-serif',
+  $grey-dark: variables.$sk-gray-600,
+  $grey-light: variables.$sk-gray-100,
+  $primary: variables.$sk-green,
+  $link: variables.$sk-green,
+  $control-border-width: 2px
+);
+
+// Bulma base
+@forward "../../node_modules/bulma/sass/base";
+@forward "../../node_modules/bulma/sass/grid";
+
+// Bulma elements
+@forward "../../node_modules/bulma/sass/elements/content";
+@forward "../../node_modules/bulma/sass/elements/title.scss";
+
+// Bulma components
+@use "../../node_modules/bulma/sass/components/navbar" with (
+  $navbar-background-color: variables.$sk-gray-50
+);
+// @forward "bulma/sass/elements/button";
+// @forward "bulma/sass/elements/icon";
+// // @forward "bulma/sass/elements/notification";
+// // @forward "bulma/sass/elements/progress";
+// // @forward "bulma/sass/elements/tag";
+// @forward "bulma/sass/layout/footer";
+
+// Bulma layout
+@forward "../../node_modules/bulma/sass/layout/container";
+
+// Bulma themes
+@forward "../../node_modules/bulma/sass/themes";
+
+// Bulma helpers
+@forward "../../node_modules/bulma/sass/helpers/visibility.scss";
+@forward "../../node_modules/bulma/sass/helpers/flexbox.scss";
+
+// Import the Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@100..900&display=swap');
+
+// @debug string.insert($bulmaPath, "sass/utilities", -1);
+
+// body {
+//   background-color: variables.$sk-white;
+// }
+
+.sk-header {
+  // background-color: variables.$sk-white;
+  background-color: variables.$sk-gray-50;
+  padding: 1rem;
 }
