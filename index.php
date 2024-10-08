@@ -11,7 +11,7 @@
 
 	</head>
 
-	<body>
+	<body class="sk-content">
 		<?php get_header(); ?>
 
 		<div class="sk-container">
