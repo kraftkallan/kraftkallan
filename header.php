@@ -7,7 +7,7 @@
 
     // Nav menu  
     if (has_nav_menu('primary')) { ?>
-      <nav id="site-navigation" class="main-navigation sk-navbar is-justify-content-space-between">
+      <nav id="site-navigation" class="main-navigation sk-navbar">
         <div class="sk-navbar-brand">
           <a class="" href="<?php echo $url; ?>">
             <?php include 'logo.php' ?>
@@ -21,7 +21,7 @@
             <span aria-hidden="true"></span>
           </a>
         </div>
-        <div id="menu-navbar" class="sk-navbar-menu"> <?php
+        <div id="menu-navbar" class="sk-navbar-menu is-justify-content-flex-end"> <?php
         wp_nav_menu(
           array(
             "container" => "div",

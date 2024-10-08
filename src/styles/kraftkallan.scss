@@ -16,14 +16,17 @@ $bulmaPath: "../../node_modules/bulma/";
   $control-border-width: 2px
 );
 
-// Bulma base
+// Base
 @forward "../../node_modules/bulma/sass/base";
 @forward "../../node_modules/bulma/sass/grid";
 
-// Bulma elements
+// Elements
 @forward "../../node_modules/bulma/sass/elements/content";
 @forward "../../node_modules/bulma/sass/elements/title.scss";
 @forward "../../node_modules/bulma/sass/elements/content.scss";
+
+// Form
+@forward "../../node_modules/bulma/sass/form/index";
 
 // Bulma components
 @use "../../node_modules/bulma/sass/components/navbar" with (
@@ -31,9 +34,9 @@ $bulmaPath: "../../node_modules/bulma/";
 );
 // @forward "bulma/sass/elements/button";
 // @forward "bulma/sass/elements/icon";
-// // @forward "bulma/sass/elements/notification";
-// // @forward "bulma/sass/elements/progress";
-// // @forward "bulma/sass/elements/tag";
+// @forward "bulma/sass/elements/notification";
+// @forward "bulma/sass/elements/progress";
+// @forward "bulma/sass/elements/tag";
 // @forward "bulma/sass/layout/footer";
 
 // Bulma layout
@@ -55,8 +58,7 @@ $bulmaPath: "../../node_modules/bulma/";
 //   background-color: variables.$sk-white;
 // }
 
-.sk-header {
-  // background-color: variables.$sk-white;
+.sk-header {  
   background-color: variables.$sk-gray-50;
   padding: 1rem;
 }
