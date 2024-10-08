@@ -31,7 +31,7 @@
             // 'menu_class' => '',     // ignored
             // 'container' => '',     // ignored        
             'items_wrap' => '%3$s', // NOT ignored
-            'walker' => new Bulma_Nav_Menu()
+            'walker' => new Bulma_Navwalker()
           )
         ); ?>
         </div><?php
