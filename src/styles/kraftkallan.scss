@@ -39,13 +39,16 @@ $bulmaPath: "../../node_modules/bulma/";
 // @forward "bulma/sass/elements/tag";
 // @forward "bulma/sass/layout/footer";
 
-// Bulma layout
+// Layout
 @forward "../../node_modules/bulma/sass/layout/container";
+@use "../../node_modules/bulma/sass/layout/footer.scss" with (
+  $footer-background-color: variables.$sk-gray-50
+);
 
-// Bulma themes
+// Themes
 @forward "../../node_modules/bulma/sass/themes";
 
-// Bulma helpers
+// Helpers
 @forward "../../node_modules/bulma/sass/helpers/visibility.scss";
 @forward "../../node_modules/bulma/sass/helpers/flexbox.scss";
 

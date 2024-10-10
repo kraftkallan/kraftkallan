@@ -56,12 +56,37 @@ add_action('wp_enqueue_scripts', 'kraftkallan_register_scripts');
  * Register sidebars.
  */
 add_action( 'widgets_init', function () {
+	// Widget 1
 	register_sidebar(
 		array(
 			'id'            => 'sk-footer-widget',
-			'name'          => esc_html__( 'Footer Widget', 'kraftkallan' ),
+			'name'          => esc_html__( 'Footer Widget 1', 'kraftkallan' ),
 			'description'   => esc_html__( 'Used for footer widget area', 'kraftkallan' ),
-			'before_widget' => '<div id="%1$s" class="sk-widget %2$s">',
+			'before_widget' => '<div id="%1$s" class="sk-widget sk-column %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="sk-widget__title">',
+			'after_title'   => '</h2>'
+		)
+	);
+	// Widget 2
+	register_sidebar(
+		array(
+			'id'            => 'sk-footer-widget-2',
+			'name'          => esc_html__( 'Footer Widget 2', 'kraftkallan' ),
+			'description'   => esc_html__( 'Used for footer widget area', 'kraftkallan' ),
+			'before_widget' => '<div id="%1$s" class="sk-widget sk-column %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="sk-widget__title">',
+			'after_title'   => '</h2>'
+		)
+	);
+	// Widget 3
+	register_sidebar(
+		array(
+			'id'            => 'sk-footer-widget-3',
+			'name'          => esc_html__( 'Footer Widget 3', 'kraftkallan' ),
+			'description'   => esc_html__( 'Used for footer widget area', 'kraftkallan' ),
+			'before_widget' => '<div id="%1$s" class="sk-widget sk-column %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="sk-widget__title">',
 			'after_title'   => '</h2>'

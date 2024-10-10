@@ -14,7 +14,7 @@
 	<body class="sk-content">
 		<?php get_header(); ?>
 
-		<div class="sk-container">
+		<main class="sk-container">
 	
 			<h1>
 				<?php bloginfo( 'name' ); ?>
@@ -47,10 +47,10 @@
 	
 			<?php wp_footer(); ?>
 	
-			<?php get_footer(); ?>
-
-		</div>
-
+			
+		</main>
+		
+		<?php get_footer(); ?>
 
 	</body>
 
