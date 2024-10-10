@@ -7,7 +7,7 @@
     
       <div class="sk-columns">
         
-        <div class="sk-column">
+        <div class="sk-column sk-is-desktop">
           <?php dynamic_sidebar( 'sk-footer-widget' ); ?>
         </div>
 
