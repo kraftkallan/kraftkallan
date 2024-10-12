@@ -5,9 +5,9 @@
     
     <div class="sk-content sk-has-text-centered">
     
-      <div class="sk-columns">
+      <div class="sk-columns sk-is-desktop">
         
-        <div class="sk-column sk-is-desktop">
+        <div class="sk-column">
           <?php dynamic_sidebar( 'sk-footer-widget' ); ?>
         </div>
 
