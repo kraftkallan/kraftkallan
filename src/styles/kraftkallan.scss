@@ -26,9 +26,10 @@ $family-secondary: "Roboto Slab";
 @forward "../../node_modules/bulma/sass/grid";
 
 // Elements
-@forward "../../node_modules/bulma/sass/elements/content";
 @forward "../../node_modules/bulma/sass/elements/title.scss";
-@forward "../../node_modules/bulma/sass/elements/content.scss";
+@use "../../node_modules/bulma/sass/elements/content.scss" with (
+  $content-heading-color: variables.$sk-green
+);
 
 // Form
 @forward "../../node_modules/bulma/sass/form/index";
@@ -118,4 +119,8 @@ h6 {
 
 .sk-site-footer {
   margin-top: functions.toRem(45);
+
+  h2 {
+    font-size: 1.25em;
+  }
 }
