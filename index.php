@@ -4,21 +4,17 @@
 	<head>
 
 		<meta charset="<?php bloginfo('charset'); ?>">
-		
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title><?php wp_title('|', true, 'right'); ?></title>
 		
 		<?php wp_head(); ?>
 
 	</head>
 
-	<body class="sk-content">
+	<body class="">
 		<?php get_header(); ?>
 
-		<main class="sk-container">
-	
-			<h1>
-				<?php bloginfo( 'name' ); ?>
-			</h1>		
+		<main class="sk-container sk-is-max-desktop sk-main sk-content">
 	
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	
@@ -41,12 +37,11 @@
 	
 			<?php else: ?>
 	
-				<p>No posts found. :(</p>
+				<p>No posts found.</p>
 	
 			<?php endif; ?>
 	
 			<?php wp_footer(); ?>
-	
 			
 		</main>
 		

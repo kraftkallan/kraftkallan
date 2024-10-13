@@ -1,7 +1,7 @@
 
-<footer class="sk-footer">
+<footer class="sk-footer sk-site-footer">
     
-  <div class="sk-container">
+  <div class="sk-container sk-is-max-desktop">
     
     <div class="sk-content sk-has-text-centered">
     

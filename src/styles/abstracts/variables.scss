@@ -1,13 +1,19 @@
+@use "sass:map";
 // prefix sk = samtalscentret kraftkällan
 
 $sk-green: #007A35;
-$sk-lightgreen: #B8D587;
+$sk-green-hsl: ("h": 146, "s": 100%, "l": 24%); // hsl(146, 100%, 24%)
 
-// $sk-gray-300: #6B6B6B
+$sk-lightgreen: #B8D587;
 
 $sk-white: #ffffff;
 
 $sk-gray-50: #f3f3f3;
+$sk-gray-50-hsl: (
+  "h": 0,
+  "s": 0%,
+  "l": 95%  
+);
 $sk-gray-100: #d8d8d8;
 $sk-gray-200: #b2b2b2;
 $sk-gray-300: #8e8e8e;

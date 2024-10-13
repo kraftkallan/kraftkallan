@@ -1,43 +1,39 @@
-<header class="sk-header">
-
-  <div class="sk-container">
-
-    <?php
+<header class="sk-header sk-card">
+  
+  <?php
     $url = home_url();
-
+    
     // Nav menu  
     if (has_nav_menu('primary')) { ?>
       <nav id="site-navigation" class="main-navigation sk-navbar">
-        <div class="sk-navbar-brand">
-          <a class="" href="<?php echo $url; ?>">
-            <?php include 'logo.php' ?>
-            <!-- <img src="data:image/svg+xml;base64,"> -->
-          </a>
-
-          <a role="button" class="sk-navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="menu-navbar">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
+        <div class="sk-container sk-is-max-desktop">
+          <div class="sk-navbar-brand">
+            <a class="" href="<?php echo $url; ?>">
+              <h1 class="is-sr-only"><?php bloginfo( 'name' ); ?></h1>
+              <?php include 'logo.php' ?>              
+            </a>
+            <a role="button" class="sk-navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="menu-navbar">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+          <div id="menu-navbar" class="sk-navbar-menu is-justify-content-flex-end"> <?php
+            wp_nav_menu(
+              array(
+                "container" => "div",
+                "container_class" => "sk-navbar",
+                'theme_location' => 'primary',                
+                'items_wrap' => '%3$s',
+                'walker' => new Bulma_Navwalker()
+              )
+            ); ?>
+          </div>
         </div>
-        <div id="menu-navbar" class="sk-navbar-menu is-justify-content-flex-end"> <?php
-        wp_nav_menu(
-          array(
-            "container" => "div",
-            "container_class" => "sk-navbar",
-            'theme_location' => 'primary',
-            // 'menu_id' => 'primary-menu',
-            // 'menu_class' => '',     // ignored
-            // 'container' => '',     // ignored        
-            'items_wrap' => '%3$s', // NOT ignored
-            'walker' => new Bulma_Navwalker()
-          )
-        ); ?>
-        </div><?php
+      </nav> <?php
     }
-    ?>
 
-  </div>
+  ?>
 
 </header>
