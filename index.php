@@ -17,7 +17,7 @@
 	
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
 	
-				if ( has_post_thumbnail() ) {
+				if ( has_post_thumbnail() && is_front_page()) {
 					the_post_thumbnail('large');
 				} ?>
 
