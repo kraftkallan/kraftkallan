@@ -12,9 +12,8 @@
 	</head>
 
 	<body class="">
-		<?php get_header(); ?>
-
-		<main class="sk-container sk-is-max-desktop sk-main sk-content">
+		<?php get_header(); ?>		
+		<main class="sk-container sk-is-max-desktop sk-main sk-content sk-padding--default">
 	
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	

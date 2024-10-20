@@ -62,7 +62,7 @@ add_action( 'widgets_init', function () {
 			'id'            => 'sk-footer-widget',
 			'name'          => esc_html__( 'Footer Widget 1', 'kraftkallan' ),
 			'description'   => esc_html__( 'Used for footer widget area', 'kraftkallan' ),
-			'before_widget' => '<div id="%1$s" class="sk-widget sk-column %2$s">',
+			'before_widget' => '<div id="%1$s" class="sk-widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="sk-widget__title">',
 			'after_title'   => '</h2>'
@@ -74,7 +74,7 @@ add_action( 'widgets_init', function () {
 			'id'            => 'sk-footer-widget-2',
 			'name'          => esc_html__( 'Footer Widget 2', 'kraftkallan' ),
 			'description'   => esc_html__( 'Used for footer widget area', 'kraftkallan' ),
-			'before_widget' => '<div id="%1$s" class="sk-widget sk-column %2$s">',
+			'before_widget' => '<div id="%1$s" class="sk-widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="sk-widget__title">',
 			'after_title'   => '</h2>'
@@ -86,7 +86,7 @@ add_action( 'widgets_init', function () {
 			'id'            => 'sk-footer-widget-3',
 			'name'          => esc_html__( 'Footer Widget 3', 'kraftkallan' ),
 			'description'   => esc_html__( 'Used for footer widget area', 'kraftkallan' ),
-			'before_widget' => '<div id="%1$s" class="sk-widget sk-column %2$s">',
+			'before_widget' => '<div id="%1$s" class="sk-widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="sk-widget__title">',
 			'after_title'   => '</h2>'

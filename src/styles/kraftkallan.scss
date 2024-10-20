@@ -1,5 +1,6 @@
 @use "sass:string";
 @use "sass:map";
+@use "sass:math";
 
 @use './abstracts/variables.scss' as variables;
 @use './abstracts/functions.scss' as functions;
@@ -10,7 +11,7 @@ $family-primary: "Open Sans";
 $family-secondary: "Roboto Slab";
 
 // Override global Sass variables from the /utilities folder
-@use "../../node_modules/bulma/sass/utilities" with (
+@use "../../node_modules/bulma/sass/utilities" as utils with (
   $class-prefix: "sk-", // samtalscentret kraftkällan => sk
   $cssvars-prefix: "sk-",
   $grey-dark: variables.$sk-gray-600,
@@ -18,8 +19,10 @@ $family-secondary: "Roboto Slab";
   $primary: variables.$sk-green,
   $link: variables.$sk-green,
   $control-border-width: 2px,
-  $gap: 30px
+  $gap: variables.$sk-gap,
 );
+
+@use "../../node_modules/bulma/sass/utilities/mixins.scss" as bulma-mixins;
 
 // Base
 @forward "../../node_modules/bulma/sass/base";
@@ -101,11 +104,8 @@ a.sk-navbar-item {
 }
 
 .sk-main {
-  margin-top: functions.toRem(45);  
-  padding: {
-    left: functions.toRem(15);
-    right: functions.toRem(15);
-  }
+  margin-top: functions.toRem(calc(variables.$sk-gap-number * 1.5));
+  margin-bottom: functions.toRem(calc(variables.$sk-gap-number * 1.5)) !important;
 }
 
 h1,
@@ -122,5 +122,30 @@ h6 {
 
   h2 {
     font-size: 1.25em;
+  }
+}
+
+// @debug utils.$tablet;
+
+.sk-padding {
+  // sk-padding-from-desktop--default
+  &-from-desktop {
+    &--default {      
+      @include bulma-mixins.from(utils.$desktop) {
+        padding: {
+          left: functions.toRem(math.div(variables.$sk-gap-number,2));
+          right: functions.toRem(math.div(variables.$sk-gap-number,2));  
+        }
+      }
+    }
+  }
+  
+
+  // sk-padding--default
+  &--default {
+    padding: {
+      left: functions.toRem(math.div(variables.$sk-gap-number,2));
+      right: functions.toRem(math.div(variables.$sk-gap-number,2));
+    }
   }
 }
