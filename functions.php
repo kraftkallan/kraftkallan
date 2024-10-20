@@ -26,6 +26,9 @@ if ( ! function_exists( 'kraftkallan_setup' ) ) :
 		
 		// Enable support for featured image
 		add_theme_support( 'post-thumbnails' );
+
+		// Enable custom logo
+		add_theme_support('custom-logo');
 	}
 endif; // kraftkallan_setup
 add_action( 'after_setup_theme', 'kraftkallan_setup' );
