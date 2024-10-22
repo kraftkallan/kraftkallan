@@ -21,7 +21,9 @@
 					the_post_thumbnail('large');
 				} ?>
 
-				<h2><?php the_title(); ?></h3>
+				<h1>
+					<?php the_title(); ?>
+				</h1>
 	
 				<?php the_content(); ?>			
 	
