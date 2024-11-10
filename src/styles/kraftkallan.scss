@@ -30,13 +30,14 @@ $family-secondary: "Roboto Slab";
 @forward "../../node_modules/bulma/sass/grid";
 
 // Elements
+@forward "../../node_modules/bulma/sass/elements/button.scss";
 @forward "../../node_modules/bulma/sass/elements/title.scss";
 @use "../../node_modules/bulma/sass/elements/content.scss" with (
   $content-heading-color: var.$sk-green
 );
 
 // Form
-@forward "../../node_modules/bulma/sass/form/index";
+@forward "../../node_modules/bulma/sass/form/";
 
 // Components
 @use "../../node_modules/bulma/sass/components/navbar" with (
