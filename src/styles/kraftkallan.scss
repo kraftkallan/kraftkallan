@@ -2,8 +2,9 @@
 @use "sass:map";
 @use "sass:math";
 
-@use './abstracts/variables.scss' as variables;
-@use './abstracts/functions.scss' as functions;
+@use './abstracts/variables' as var;
+@use './abstracts/functions' as func;
+@use './abstracts/mixins' as mix;
 
 $bulmaPath: "../../node_modules/bulma/";
 
@@ -14,12 +15,12 @@ $family-secondary: "Roboto Slab";
 @use "../../node_modules/bulma/sass/utilities" as utils with (
   $class-prefix: "sk-", // samtalscentret kraftkällan => sk
   $cssvars-prefix: "sk-",
-  $grey-dark: variables.$sk-gray-600,
-  $grey-light: variables.$sk-gray-100,
-  $primary: variables.$sk-green,
-  $link: variables.$sk-green,
+  $grey-dark: var.$sk-gray-600,
+  $grey-light: var.$sk-gray-100,
+  $primary: var.$sk-green,
+  $link: var.$sk-green,
   $control-border-width: 2px,
-  $gap: variables.$sk-gap,
+  $gap: var.$sk-gap,
 );
 
 @use "../../node_modules/bulma/sass/utilities/mixins.scss" as bulma-mixins;
@@ -31,7 +32,7 @@ $family-secondary: "Roboto Slab";
 // Elements
 @forward "../../node_modules/bulma/sass/elements/title.scss";
 @use "../../node_modules/bulma/sass/elements/content.scss" with (
-  $content-heading-color: variables.$sk-green
+  $content-heading-color: var.$sk-green
 );
 
 // Form
@@ -39,28 +40,28 @@ $family-secondary: "Roboto Slab";
 
 // Components
 @use "../../node_modules/bulma/sass/components/navbar" with (
-  $navbar-background-color: variables.$sk-gray-50,
-  $navbar-item-color: variables.$sk-green,
-  $navbar-dropdown-item-h: map.get(variables.$sk-green-hsl, "h"),
-  $navbar-dropdown-item-s: map.get(variables.$sk-green-hsl, "s"),
-  $navbar-dropdown-item-l: map.get(variables.$sk-green-hsl, "l"),
-  $navbar-tab-active-color: variables.$sk-green,
-  $navbar-tab-active-background-color: variables.$sk-gray-50,
-  $navbar-tab-active-border-bottom-color: variables.$sk-green,
+  $navbar-background-color: var.$sk-gray-50,
+  $navbar-item-color: var.$sk-green,
+  $navbar-dropdown-item-h: map.get(var.$sk-green-hsl, "h"),
+  $navbar-dropdown-item-s: map.get(var.$sk-green-hsl, "s"),
+  $navbar-dropdown-item-l: map.get(var.$sk-green-hsl, "l"),
+  $navbar-tab-active-color: var.$sk-green,
+  $navbar-tab-active-background-color: var.$sk-gray-50,
+  $navbar-tab-active-border-bottom-color: var.$sk-green,
   $navbar-tab-active-border-bottom-style: solid,
-  $navbar-tab-active-border-bottom-width: functions.toRem(3),
-  $navbar-item-selected-h: map.get(variables.$sk-gray-50-hsl, "h"),
-  $navbar-item-selected-s: map.get(variables.$sk-gray-50-hsl, "s"),
-  $navbar-item-selected-l: map.get(variables.$sk-gray-50-hsl, "l"),
+  $navbar-tab-active-border-bottom-width: func.toRem(3),
+  $navbar-item-selected-h: map.get(var.$sk-gray-50-hsl, "h"),
+  $navbar-item-selected-s: map.get(var.$sk-gray-50-hsl, "s"),
+  $navbar-item-selected-l: map.get(var.$sk-gray-50-hsl, "l"),
   $navbar-item-selected-background-l: 90%,
-  $navbar-item-selected-color-l: map.get(variables.$sk-gray-50-hsl, "l"),
+  $navbar-item-selected-color-l: map.get(var.$sk-gray-50-hsl, "l"),
 );
 @use "../../node_modules/bulma/sass/components/card.scss";
 
 // Layout
 @forward "../../node_modules/bulma/sass/layout/container";
 @use "../../node_modules/bulma/sass/layout/footer.scss" with (
-  $footer-background-color: variables.$sk-gray-50
+  $footer-background-color: var.$sk-gray-50
 );
 
 // Themes
@@ -75,37 +76,27 @@ $family-secondary: "Roboto Slab";
 
 
 .sk-header {  
-  background-color: variables.$sk-gray-50;
+  background-color: var.$sk-gray-50;
   padding: 1rem;
 }
 
 a.sk-navbar-item {
   position: relative;
-
-  &::before {
-    background: none repeat scroll 0 0 transparent;
-    position: absolute;
-    content: "";
-    bottom: functions.toRem(3);
-    background-color: variables.$sk-green;
-    height: functions.toRem(3);
-    display: block;
-    left: 50%;
-    width: 0;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    @media (prefers-reduced-motion) {
-      transition: none;
-    }
+  
+  // Border bottom animated on hover
+  &:not(.sk-is-active) {
+    @include mix.border-bottom-animated(); 
   }
-  &:hover::before { 
-    width: 100%; 
-    left: 0;
-  }  
+
+  // Border bottom on active page
+  &.sk-is-active {
+    @include mix.active-page();
+  }
 }
 
 .sk-main {
-  margin-top: functions.toRem(calc(variables.$sk-gap-number * 1.5));
-  margin-bottom: functions.toRem(calc(variables.$sk-gap-number * 1.5)) !important;
+  margin-top: func.toRem(calc(var.$sk-gap-number * 1.5));
+  margin-bottom: func.toRem(calc(var.$sk-gap-number * 1.5)) !important;
 }
 
 h1,
@@ -118,7 +109,7 @@ h6 {
 }
 
 .sk-site-footer {
-  margin-top: functions.toRem(45);
+  margin-top: func.toRem(45);
 
   h2 {
     font-size: 1.25em;
@@ -133,8 +124,8 @@ h6 {
     &--default {      
       @include bulma-mixins.from(utils.$desktop) {
         padding: {
-          left: functions.toRem(math.div(variables.$sk-gap-number,2));
-          right: functions.toRem(math.div(variables.$sk-gap-number,2));  
+          left: func.toRem(math.div(var.$sk-gap-number,2));
+          right: func.toRem(math.div(var.$sk-gap-number,2));  
         }
       }
     }
@@ -144,8 +135,8 @@ h6 {
   // sk-padding--default
   &--default {
     padding: {
-      left: functions.toRem(math.div(variables.$sk-gap-number,2));
-      right: functions.toRem(math.div(variables.$sk-gap-number,2));
+      left: func.toRem(math.div(var.$sk-gap-number,2));
+      right: func.toRem(math.div(var.$sk-gap-number,2));
     }
   }
 }

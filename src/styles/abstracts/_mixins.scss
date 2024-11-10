@@ -1,0 +1,30 @@
+@use './functions' as func;
+@use './variables' as var;
+
+@mixin border-bottom-animated() {
+  &::before {
+    background: none repeat scroll 0 0 transparent;
+    position: absolute;
+    content: "";
+    bottom: func.toRem(3);
+    background-color: var.$sk-green;
+    height: func.toRem(3);
+    display: block;
+    left: 50%;
+    width: 0;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    @media (prefers-reduced-motion) {
+      transition: none;
+    }
+  }
+  &:hover::before { 
+    width: 100%; 
+    left: 0;
+  }
+}
+
+@mixin active-page() {
+  border-bottom-width: func.toRem(3);
+  border-bottom-color: var.$sk-green;
+  border-bottom-style: solid;
+}
