@@ -213,11 +213,13 @@
 			if ( empty( $item->attr_title ) ) {
 				$atts['title'] = ! empty( $item->title ) ? strip_tags( $item->title ) : '';
 			}
-			$atts['target'] = ! empty( $item->target ) ? $item->target : '';
-			$atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
-			$atts['href']   = ! empty( $item->url ) ? $item->url : '';
-			$atts           = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
-			$attributes     = '';
+			$atts['target'] 			= ! empty( $item->target ) ? $item->target : '';
+			$atts['rel']    			= ! empty( $item->xfn ) ? $item->xfn : '';
+			$atts['href']   			= ! empty( $item->url ) ? $item->url : '';
+			
+			// $atts['aria-current'] = ! empty( $item->aria_current ? $item->)
+			$atts           			= apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
+			$attributes     			= '';
 			foreach ( $atts as $attr => $value ) {
 				if ( ! empty( $value ) ) {
 					$value      = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );

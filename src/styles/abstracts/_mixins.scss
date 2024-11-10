@@ -1,14 +1,18 @@
 @use './functions' as func;
 @use './variables' as var;
 
+$bottom:  func.toRem(0);
+$color:   var.$sk-green;
+$height:  func.toRem(3);
+
 @mixin border-bottom-animated() {
   &::before {
     background: none repeat scroll 0 0 transparent;
     position: absolute;
     content: "";
-    bottom: func.toRem(3);
-    background-color: var.$sk-green;
-    height: func.toRem(3);
+    bottom: $bottom;
+    background-color: $color;
+    height: $height;
     display: block;
     left: 50%;
     width: 0;
@@ -24,7 +28,15 @@
 }
 
 @mixin active-page() {
-  border-bottom-width: func.toRem(3);
-  border-bottom-color: var.$sk-green;
-  border-bottom-style: solid;
+  &::before {
+    background: none repeat scroll 0 0 transparent;
+    position: absolute;
+    content: "";
+    bottom: $bottom;
+    background-color: $color;
+    height: $height;
+    display: block;
+    left: 0;
+    width: 100%;
+  }
 }
