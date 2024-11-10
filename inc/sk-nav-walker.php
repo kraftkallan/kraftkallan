@@ -216,8 +216,7 @@
 			$atts['target'] 			= ! empty( $item->target ) ? $item->target : '';
 			$atts['rel']    			= ! empty( $item->xfn ) ? $item->xfn : '';
 			$atts['href']   			= ! empty( $item->url ) ? $item->url : '';
-			
-			// $atts['aria-current'] = ! empty( $item->aria_current ? $item->)
+			$atts['aria-current'] = ! empty( $item->current ) && $item->current == '1' ? 'page' : '';
 			$atts           			= apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
 			$attributes     			= '';
 			foreach ( $atts as $attr => $value ) {
